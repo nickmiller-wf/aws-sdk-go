@@ -109,8 +109,6 @@ lint:
 SDK_BASE_FOLDERS=$(shell ls -d */ | grep -v vendor | grep -v awsmigrate)
 ifneq (,$(findstring go1.4, ${SDK_GO_VERSION}))
 	GO_VET_CMD=echo skipping go vet, ${SDK_GO_VERSION}
-else ifneq (,$(findstring go1.6, ${SDK_GO_VERSION}))
-	GO_VET_CMD=go tool vet --all -shadow -example=false
 else
 	GO_VET_CMD=go tool vet --all -shadow
 endif
